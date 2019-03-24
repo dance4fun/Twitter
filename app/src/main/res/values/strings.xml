@@ -1,0 +1,15 @@
+<resources>
+  <string name="app_name">Twitter</string>
+
+  <string name="login_email_hint">Email</string>
+  <string name="login_password_hint">Password</string>
+  <string name="login_button">Login</string>
+  <string name="login_error_empty_email">Please, enter an email</string>
+  <string name="login_error_empty_password">Please, enter a password</string>
+  <string name="login_error_empty_email_and_password">Please, enter an email and a password</string>
+  <string name="login_error_invalid_credentials">Please, enter valid email and password</string>
+
+  <string name="home_input_message_hint">Enter your message</string>
+  <string name="home_button_logout">Logout</string>
+  <string name="home_empty_message_error">Please, enter a message.</string>
+</resources>

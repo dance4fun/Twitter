@@ -1,0 +1,88 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+  compileSdkVersion Versions.compileSdk
+
+  compileOptions {
+    sourceCompatibility Versions.androidSourceCompatibility
+    targetCompatibility Versions.androidTargetCompatibility
+  }
+
+  defaultConfig {
+    applicationId "com.twitter"
+    minSdkVersion Versions.minSdk
+    targetSdkVersion Versions.targetSdk
+    versionCode appVersionCode
+    versionName appVersionName
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+  }
+
+  buildTypes {
+    debug {
+      minifyEnabled false
+    }
+    release {
+      minifyEnabled true
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+
+  dataBinding {
+    enabled = true
+  }
+}
+
+dependencies {
+  kapt Libs.daggerCompiler
+  kapt Libs.glideAnnotationProcessor
+  kapt Libs.roomAnnotationProcessor
+
+  implementation Libs.kotlin
+  implementation Libs.supportV7
+  implementation Libs.supportAnnotations
+  implementation Libs.supportConstraint
+  implementation Libs.supportDesign
+  implementation Libs.archComponentsExtensions
+  implementation Libs.glide
+  implementation Libs.dagger
+  implementation Libs.daggerAndroid
+  implementation Libs.daggerAndroidSupport
+  implementation Libs.rxJava2
+  implementation Libs.rxAndroid2
+  implementation Libs.roomRuntime
+  implementation Libs.roomRxJava2
+  implementation Libs.retrofit
+  implementation Libs.retrofitGsonConverter
+  implementation Libs.retrofitRx2
+  implementation Libs.okHttpLogging
+  implementation Libs.okHttp
+  implementation Libs.stetho
+
+  implementation Libs.hamcrestLib
+  implementation Libs.junit
+
+  androidTestImplementation Libs.supportAnnotations
+  androidTestImplementation Libs.supportTestRunner
+  androidTestImplementation Libs.supportTestRules
+  androidTestImplementation(Libs.espresso) {
+    exclude group: 'com.android.support', module: 'support-annotations'
+  }
+  androidTestImplementation Libs.uiautomator
+  testImplementation Libs.mockito
+  testImplementation Libs.junit
+  testImplementation Libs.hamcrest
+  testImplementation Libs.hamcrestLib
+  testImplementation Libs.hamcrestIntegration
+  testImplementation Libs.okHttpMockServer
+  testImplementation Libs.kotlinTest
+  testImplementation Libs.kotlinTestJUnit
+  testImplementation Libs.archComponentsTesting
+  testImplementation(Libs.mockitoKotlin) {
+    exclude group: 'org.jetbrains.kotlin', module: 'kotlin-reflect'
+  }
+
+}

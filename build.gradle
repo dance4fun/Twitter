@@ -1,0 +1,28 @@
+buildscript {
+  repositories {
+    google()
+    jcenter()
+  }
+  dependencies {
+    classpath Libs.gradlePlugin
+    classpath Libs.kotlinGradlePlugin
+  }
+}
+
+allprojects {
+  repositories {
+    google()
+    jcenter()
+  }
+}
+
+subprojects {
+  ext {
+    appVersionCode = 1
+    appVersionName = "1.0"
+  }
+}
+
+task clean(type: Delete) {
+  delete rootProject.buildDir
+}
